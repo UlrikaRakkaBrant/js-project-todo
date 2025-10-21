@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useTodoStore } from '../store/useTodoStore.js'
+import { format } from 'date-fns'
 
 const Item = styled.li`
   display: grid;
@@ -41,7 +42,17 @@ export default function TodoItem({ task }) {
       />
       <label htmlFor={`cb-${task.id}`} style={{ cursor: 'pointer' }}>
         <Title $done={task.completed}>{task.title}</Title>
+        <div>
+          <time
+            dateTime={task.createdAt}
+            title={task.createdAt}
+            style={{ color: 'var(--muted)', fontSize: 12 }}
+          >
+            {format(new Date(task.createdAt), 'MMM d, HH:mm')}
+          </time>
+        </div>
       </label>
+
       <RemoveBtn onClick={() => removeTask(task.id)} aria-label={`Delete "${task.title}"`}>
         Delete
       </RemoveBtn>
