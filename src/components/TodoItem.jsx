@@ -1,22 +1,32 @@
 import styled from 'styled-components'
+import { media } from '../styles/media.js'
 import { useTodoStore } from '../store/useTodoStore.js'
 import { format } from 'date-fns'
 
 const Item = styled.li`
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;   /* checkbox | text/date | delete */
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
   background: var(--surface);
   border: 1px solid #2a3650;
   border-radius: 14px;
+
+  ${media.mobile(`
+    padding: 12px 12px;
+    gap: 10px;
+  `)}
 `
 
 const Title = styled.span`
   word-break: break-word;
   opacity: ${({ $done }) => ($done ? 0.7 : 1)};
   text-decoration: ${({ $done }) => ($done ? 'line-through' : 'none')};
+
+  ${media.mobile(`
+    font-size: 0.95rem;
+  `)}
 `
 
 const RemoveBtn = styled.button`
@@ -25,6 +35,10 @@ const RemoveBtn = styled.button`
   color: var(--danger);
   border-radius: 10px;
   padding: 8px 10px;
+
+  ${media.mobile(`
+    padding: 8px 10px;
+  `)}
 `
 
 export default function TodoItem({ task }) {
@@ -52,7 +66,6 @@ export default function TodoItem({ task }) {
           </time>
         </div>
       </label>
-
       <RemoveBtn onClick={() => removeTask(task.id)} aria-label={`Delete "${task.title}"`}>
         Delete
       </RemoveBtn>
