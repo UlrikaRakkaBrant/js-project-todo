@@ -1,7 +1,19 @@
 import styled from 'styled-components'
 import { media } from '../styles/media.js'
 import { useTodoStore } from '../store/useTodoStore.js'
-import { format } from 'date-fns'
+import { format, isBefore, startOfDay, parseISO } from 'date-fns'
+
+// add a badge
+const Badge = styled.span`
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid #2a3650;
+  color: ${({ $danger }) => ($danger ? 'white' : 'var(--text)')};
+  background: ${({ $danger }) => ($danger ? 'var(--danger)' : 'transparent')};
+`
 
 const Item = styled.li`
   display: grid;
@@ -45,6 +57,11 @@ export default function TodoItem({ task }) {
   const toggleTask = useTodoStore(s => s.toggleTask)
   const removeTask = useTodoStore(s => s.removeTask)
 
+  const hasDue = !!task.dueDate
+  const due = hasDue ? startOfDay(parseISO(task.dueDate)) : null
+  const today = startOfDay(new Date())
+  const isOverdue = hasDue && !task.completed && isBefore(due, today)
+
   return (
     <Item>
       <input
@@ -56,16 +73,22 @@ export default function TodoItem({ task }) {
       />
       <label htmlFor={`cb-${task.id}`} style={{ cursor: 'pointer' }}>
         <Title $done={task.completed}>{task.title}</Title>
+
+        {/* existing createdAt time */}
         <div>
-          <time
-            dateTime={task.createdAt}
-            title={task.createdAt}
-            style={{ color: 'var(--muted)', fontSize: 12 }}
-          >
+          <time dateTime={task.createdAt} title={task.createdAt} style={{ color: 'var(--muted)', fontSize: 12 }}>
             {format(new Date(task.createdAt), 'MMM d, HH:mm')}
           </time>
         </div>
+
+        {/* NEW: due/overdue badge */}
+        {hasDue && (
+          <Badge $danger={isOverdue} aria-label={isOverdue ? 'Overdue' : 'Due date'}>
+            {isOverdue ? 'Overdue' : 'Due'} {format(due, 'MMM d')}
+          </Badge>
+        )}
       </label>
+
       <RemoveBtn onClick={() => removeTask(task.id)} aria-label={`Delete "${task.title}"`}>
         Delete
       </RemoveBtn>
