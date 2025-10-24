@@ -8,13 +8,26 @@ import TodoForm from './components/TodoForm.jsx'
 import TodoList from './components/TodoList.jsx'
 import EmptyState from './components/EmptyState.jsx'
 import Footer from './components/Footer.jsx'
+import foxIcon from './assets/favicon.jpg'
 
 const Shell = styled.main`
   max-width: 720px; margin: 0 auto; padding: 24px; min-height: 100dvh; display: grid; align-content: start; gap: 18px;
 `
 const H1 = styled.h1`
-  margin: 8px 0 4px; font-size: clamp(28px, 3vw, 40px);
+  margin: 8px 0 4px;
+  font-size: clamp(28px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    user-select: none;
+  }
 `
+
 const Card = styled.section`
   display: grid; gap: 12px;
 `
@@ -69,7 +82,11 @@ export default function App() {
       <Shell>
         <TopBar>
           <div>
-            <H1>FocusDen</H1>
+            <H1>
+              FocusDen
+              <img src={foxIcon} alt="Fox logo" />
+            </H1>
+
             <p style={{ color: 'var(--muted)', margin: 0, fontWeight: 600 }}>
               Let your hands create what your eyes fear to imagine.
             </p>
