@@ -69,9 +69,9 @@ export default function App() {
       <Shell>
         <TopBar>
           <div>
-            <H1>Todos</H1>
-            <p style={{ color: 'var(--muted)', margin: 0 }}>
-              Powered by Zustand — no prop drilling 👋
+            <H1>FocusDen</H1>
+            <p style={{ color: 'var(--muted)', margin: 0, fontWeight: 600 }}>
+              Let your hands create what your eyes fear to imagine.
             </p>
           </div>
           <ThemeBtn onClick={toggleTheme} title="Toggle theme">

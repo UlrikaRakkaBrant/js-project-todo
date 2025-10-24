@@ -17,6 +17,8 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
+  width: 100%;
+  display: block;
   padding: 14px 16px;
   border-radius: 12px;
   border: 1px solid #2a3650;
@@ -49,7 +51,7 @@ export default function TodoForm() {
 
   return (
     <Form onSubmit={onSubmit} noValidate>
-      <div style={{ position: 'relative' }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Label htmlFor="new-task">Add a new task</Label>
         <Input
           id="new-task"
@@ -61,9 +63,13 @@ export default function TodoForm() {
           maxLength={120}
           aria-describedby="char-help"
         />
-        <small id="char-help" style={{ color: 'var(--muted)' }}>
+        <small
+          id="char-help"
+          style={{ color: 'var(--muted)', display: 'block', marginTop: '6px' }}
+        >
           {120 - value.length} characters left
         </small>
+
       </div>
       <Button type="submit" aria-label="Add task">Add</Button>
     </Form>
