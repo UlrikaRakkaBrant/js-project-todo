@@ -8,7 +8,7 @@ export const useTodoStore = create(
     (set, get) => ({
       tasks: [],
 
-      addTask: (title) => {
+      addTask: (title, dueDate) => {
         const trimmed = title.trim()
         if (!trimmed) return
         const newTask = {
@@ -16,6 +16,7 @@ export const useTodoStore = create(
           title: trimmed,
           completed: false,
           createdAt: new Date().toISOString(),
+          dueDate: dueDate || null, // ← optional
         }
         set({ tasks: [newTask, ...get().tasks] })
       },
