@@ -63,9 +63,7 @@ export default function App() {
   // THEME: light | dark | auto
   const { theme, setTheme } = useThemeStore()
   function toggleTheme() {
-    if (theme === 'dark') setTheme('light')
-    else if (theme === 'light') setTheme('auto')
-    else setTheme('dark')
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
   // FILTERS
@@ -92,8 +90,9 @@ export default function App() {
             </p>
           </div>
           <ThemeBtn onClick={toggleTheme} title="Toggle theme">
-            {theme === 'dark' ? '🌙 Dark' : theme === 'light' ? '☀️ Light' : '💻 Auto'}
+            {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
           </ThemeBtn>
+
         </TopBar>
 
         <TodoForm />
