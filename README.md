@@ -13,8 +13,6 @@ FocusDen helps you stay organized and present — without noise or clutter.
 
 ![FocusDen app screenshot](./src/assets/focusden-preview.jpg)
 
-💡 Tip: Add a screenshot of your live site as `focusden-preview.png` inside `src/assets/`.
-
 ---
 
 ## ✨ Features
@@ -87,7 +85,6 @@ Then open the generated `/dist` folder in your browser.
 🕓 Filter tasks by **due date** or **overdue**  
 🏷️ Add **tags / categories**  
 🔔 Add **reminders or notifications**  
-✨ Smooth **animations** using Framer Motion  
 ☁️ Sync tasks with a backend or cloud API  
 
 ---
@@ -115,7 +112,7 @@ Then open the generated `/dist` folder in your browser.
 
 ## 👩‍💻 Author
 
-Built with ☕, 🎧, and curiosity by **[Your Name]**  
+Built with 🍵, 🎧, and curiosity by Ulrika Einebrant  
 Frontend developer passionate about clean design, accessibility, and calm user experiences.  
 _“Let your hands create what your eyes fear to imagine.”_
 
@@ -130,4 +127,6 @@ This project is open source and available under the **MIT License**.
 ## 💫 Connect
 
 🔗 **Live app:** [focusden.netlify.app](https://focusden.netlify.app)  
-💻 **GitHub repo:** [github.com/yourusername/focusden](https://github.com/yourusername/focusden)
+💻 **GitHub repo:** [github.com/yourusername/focusden](https://github.com/yourusername/focusden)  
+🧭 **Portfolio:** [ulrikasportfolio.netlify.app](https://ulrikasportfolio.netlify.app/)  
+💼 **LinkedIn:** [ulrika-einebrant](https://www.linkedin.com/in/ulrika-einebrant/)
