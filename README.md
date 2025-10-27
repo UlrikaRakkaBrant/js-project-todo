@@ -112,9 +112,9 @@ Then open the generated `/dist` folder in your browser.
 
 ## 👩‍💻 Author
 
-Built with 🍵, 🎧, and curiosity by Ulrika Einebrant  
-Frontend developer passionate about clean design, accessibility, and calm user experiences.  
-_“Let your hands create what your eyes fear to imagine.”_
+Made with 🍵, 🎧, curiosity, and a generous dose of AI magic by Ulrika Einebrant.
+Frontend developer passionate about clean design, accessibility, and calm user experiences.
+“Let your hands create what your eyes fear to imagine.”
 
 ---
 
